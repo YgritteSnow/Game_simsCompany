@@ -19,10 +19,10 @@ public class testIMGUI : MonoBehaviour {
     void OnGUI()
     {
         // This line feeds "This is the tooltip" into GUI.tooltip
-        GUI.Button(new Rect(10, 10, 100, 20), new GUIContent("1111", tex, "This is the tooltip 111"), style);
-        GUI.Label(new Rect(10, 40, 100, 20), GUI.tooltip);
+        GUI.Button(new Rect(10, 10, 100, 60), new GUIContent("Button 1", tex, "This is the tooltip 111"), style);
+        GUI.Label(new Rect(110, 10, 100, 60), GUI.tooltip);
 
-        GUI.Button(new Rect(10, 40, 100, 20), new GUIContent("2222", tex, "This is the tooltip 222"), style);
-        GUI.Label(new Rect(10, 70, 100, 20), GUI.tooltip);
+        GUI.Button(new Rect(10, 160, 100, 60), new GUIContent("Button 2", tex, "This is the tooltip 222"), style);
+        GUI.Label(new Rect(110, 160, 100, 60), GUI.tooltip);
     }
 }
