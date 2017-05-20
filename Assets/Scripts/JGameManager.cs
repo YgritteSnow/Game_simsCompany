@@ -9,7 +9,12 @@ public class JGameManager : MonoBehaviour {
 	void Start ()
     {
         Debug.Log("JGameManager start");
+
+		Canvas uiroot = GameObject.Find("UIRoot").GetComponent<Canvas>();
+		this.gameObject.AddComponent<JUIResources>();
         m_resourceRoot = GameObject.Find("Helper").GetComponent<JUIResources>();
+		m_resourceRoot.Init(uiroot);
+
         m_resourceRoot.OpenUI("welcome");
 	}
 	

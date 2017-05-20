@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class JUIResources : MonoBehaviour {
     #region Data
-    public Canvas UIRoot;
+    private Canvas m_UIRoot;
 
     // structure of gui resources
     public struct JUIResourceData
     {
         public string name;
         public string prefab_path;
-        public int component_id;
-        public JUIResourceData(string n, string p, int c) {
+        public System.Type script_type;
+        public JUIResourceData(string n, string p, System.Type c) {
             this.name = n;
             this.prefab_path = p;
-            this.component_id = c;
+            this.script_type = c;
         }
     }
     // a collection of all gui
@@ -24,23 +24,23 @@ public class JUIResources : MonoBehaviour {
     #endregion
 
     // Register all gui names at start
-    void Start ()
+    public void Init (Canvas uiroot)
     {
-        Debug.Log("JUIResources start");
+        Debug.Log("JUIResources Init");
+		this.m_UIRoot = uiroot;
         //RegisterUI<JUIPanel_welcome>("welcome", "Assets/Resources/Prefabs/UI/UIPanel/panel_welcome.prefab");
         RegisterUI<JUIPanel_welcome>("welcome", "Prefabs/UI/UIPanel/panel_welcome");
     }
     
     void RegisterUI<T>(string name, string prefab_path) {
-        m_ResPath.Add(name, new JUIResourceData(name, prefab_path, 1));
+        m_ResPath.Add(name, new JUIResourceData(name, prefab_path, typeof(JUIPanel_welcome)));
     }
 
     JUIResourceData GetUIInfo(string name)
     {
         if (!m_ResPath.ContainsKey(name))
         {
-
-            return new JUIResourceData("","",0);
+            return new JUIResourceData("","",typeof(JUIPanelBase));
         }
         else
         {
@@ -55,18 +55,14 @@ public class JUIResources : MonoBehaviour {
         GameObject uiobj = Resources.Load(info.prefab_path) as GameObject;
         if (!uiobj)
         {
-            Debug.Log("Invalid UI name:" + name);
+            Debug.Log("Invalid UI name:" + name + "," + info.prefab_path);
             return;
         }
 
-        //GameObject uiobj_tmp = GameObject.Instantiate(uiobj, UIRoot.transform);
-        GameObject uiobj_tmp = GameObject.Instantiate(uiobj, new Vector3(), new Quaternion(), UIRoot.transform);
+		//GameObject uiobj_tmp = GameObject.Instantiate(uiobj, m_UIRoot.transform);
+		GameObject uiobj_tmp = GameObject.Instantiate(uiobj, new Vector3(), new Quaternion(), m_UIRoot.transform);
         uiobj_tmp.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
-
-        if(name == "welcome")
-        {
-            uiobj_tmp.AddComponent<JUIPanel_welcome>();
-        }
+		uiobj_tmp.AddComponent(info.script_type);
     }
     #endregion
 
