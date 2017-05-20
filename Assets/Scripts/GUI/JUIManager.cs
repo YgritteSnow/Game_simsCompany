@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JUIAutoStrech : MonoBehaviour {
+public class JUIManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

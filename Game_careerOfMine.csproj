@@ -78,8 +78,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\JUIAutoStrech.cs" />
-    <Compile Include="Assets\Scripts\JUIAutoStretch.cs" />
+    <Compile Include="Assets\Scripts\GUI\JUIManager.cs" />
+    <Compile Include="Assets\Scripts\GUI\JUIPanel\JUIPanelBase.cs" />
+    <Compile Include="Assets\Scripts\GUI\JUIPanel\JUIPanel_welcome.cs" />
+    <Compile Include="Assets\Scripts\GUI\JUIResources.cs" />
+    <Compile Include="Assets\Scripts\JGameLoader.cs" />
+    <Compile Include="Assets\Scripts\JGameManager.cs" />
     <Compile Include="Assets\Scripts\testIMGUI.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
