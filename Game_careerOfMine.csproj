@@ -78,7 +78,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\GUI\JUIManager.cs" />
     <Compile Include="Assets\Scripts\GUI\JUIPanel\JUIPanelBase.cs" />
     <Compile Include="Assets\Scripts\GUI\JUIPanel\JUIPanel_welcome.cs" />
     <Compile Include="Assets\Scripts\GUI\JUIResources.cs" />
