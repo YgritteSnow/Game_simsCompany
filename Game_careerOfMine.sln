@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game_careerOfMine.Plugins", "Game_careerOfMine.Plugins.csproj", "{68CBF556-002B-7A37-325E-29CB175D03F9}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game_careerOfMine", "Game_careerOfMine.csproj", "{24DE9B59-34B3-68D5-3818-99246B5A8A13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game_careerOfMine.Editor.Plugins", "Game_careerOfMine.Editor.Plugins.csproj", "{0B854D69-C2E8-2674-8003-4E8F8D0A702A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68CBF556-002B-7A37-325E-29CB175D03F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68CBF556-002B-7A37-325E-29CB175D03F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68CBF556-002B-7A37-325E-29CB175D03F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68CBF556-002B-7A37-325E-29CB175D03F9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{24DE9B59-34B3-68D5-3818-99246B5A8A13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{24DE9B59-34B3-68D5-3818-99246B5A8A13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24DE9B59-34B3-68D5-3818-99246B5A8A13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24DE9B59-34B3-68D5-3818-99246B5A8A13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B854D69-C2E8-2674-8003-4E8F8D0A702A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B854D69-C2E8-2674-8003-4E8F8D0A702A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B854D69-C2E8-2674-8003-4E8F8D0A702A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B854D69-C2E8-2674-8003-4E8F8D0A702A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

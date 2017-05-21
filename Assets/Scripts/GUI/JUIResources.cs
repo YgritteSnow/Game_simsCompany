@@ -21,10 +21,11 @@ public class JUIResources : MonoBehaviour {
     // a collection of all gui
     private Dictionary<string, JUIResourceData> m_ResPath = new Dictionary<string, JUIResourceData>();
 
-    #endregion
+	#endregion
 
-    // Register all gui names at start
-    public void Init (Canvas uiroot)
+	#region Register UI resources
+	// Register all gui names at start
+	public void Init (Canvas uiroot)
     {
         Debug.Log("JUIResources Init");
 		this.m_UIRoot = uiroot;
@@ -36,7 +37,7 @@ public class JUIResources : MonoBehaviour {
         m_ResPath.Add(name, new JUIResourceData(name, prefab_path, typeof(JUIPanel_welcome)));
     }
 
-    JUIResourceData GetUIInfo(string name)
+    private JUIResourceData GetUIInfo(string name)
     {
         if (!m_ResPath.ContainsKey(name))
         {
@@ -47,9 +48,10 @@ public class JUIResources : MonoBehaviour {
             return m_ResPath[name];
         }
     }
+	#endregion
 
-    #region Public functions
-    public void OpenUI(string name)
+	#region Public functions provided
+	public void OpenUI(string name)
     {
         JUIResourceData info = GetUIInfo(name);
         GameObject uiobj = Resources.Load(info.prefab_path) as GameObject;
@@ -65,6 +67,4 @@ public class JUIResources : MonoBehaviour {
 		uiobj_tmp.AddComponent(info.script_type);
     }
     #endregion
-
-    // RTTI
 }

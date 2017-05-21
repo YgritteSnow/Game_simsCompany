@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class JUIPanel_welcome : JUIPanelBase {
@@ -12,11 +13,9 @@ public class JUIPanel_welcome : JUIPanelBase {
 
 	public override void InitHandlers()
 	{
-		Debug.Log("JUIPanel_welcome InitHandlers");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		AddHandler_onClick("Button_Red", () =>
+		{
+			SceneManager.LoadScene("home");
+		});
 	}
 }

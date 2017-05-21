@@ -2,35 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JGameManager : MonoBehaviour {
-    private JUIResources m_resourceRoot;
+public class JGameManager : MonoBehaviour
+{
+	public Canvas m_UIRoot;
+
+	private JUIResources m_resourceRoot;
 	static private JGameManager m_instance = null;
 	// Use this for initialization
 	void Start ()
     {
         Debug.Log("JGameManager start");
+		if (!m_UIRoot) return;
 
-		Canvas uiroot = GameObject.Find("UIRoot").GetComponent<Canvas>();
-		this.gameObject.AddComponent<JUIResources>();
-        m_resourceRoot = GameObject.Find("Helper").GetComponent<JUIResources>();
-		m_resourceRoot.Init(uiroot);
+		m_resourceRoot = this.gameObject.AddComponent<JUIResources>();
+		m_resourceRoot.Init(m_UIRoot);
 
         m_resourceRoot.OpenUI("welcome");
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-	static public JGameManager GetInstance()
+	private void Awake()
 	{
-		if (!m_instance)
-		{
-			m_instance = new JGameManager();
-		}
-		return m_instance;
+		Debug.Log("JGameManager awake");
+		m_instance = this;
 	}
+	static public JGameManager Instance { get { return m_instance; } }
 
 	static public JUIResources GetJUIResource()
 	{
