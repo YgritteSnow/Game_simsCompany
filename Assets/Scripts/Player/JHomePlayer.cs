@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Data;
 
-public class JHostPlayer : MonoBehaviour
+public class JHomePlayer : MonoBehaviour
 {
-	private System.Type m_controlerType = typeof(TestPlayerController);
+	private System.Type m_controlerType = typeof(JFirstPersonController);
 	private PlayerInfo m_info;
 
 	// Use this for initialization
