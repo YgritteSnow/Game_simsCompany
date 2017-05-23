@@ -92,8 +92,9 @@
     <Compile Include="Assets\Scripts\JGameLoader.cs" />
     <Compile Include="Assets\Scripts\JGameManager.cs" />
     <Compile Include="Assets\Scripts\Player\JFirstPersonController.cs" />
-    <Compile Include="Assets\Scripts\Player\JHomePlayer.cs" />
+    <Compile Include="Assets\Scripts\Player\JNavController.cs" />
     <Compile Include="Assets\Scripts\Player\JPlayerInfo.cs" />
+    <Compile Include="Assets\Scripts\Player\JThirdPersonCharacter.cs" />
     <Compile Include="Assets\Scripts\Utility\JMousePicked.cs" />
     <Compile Include="Assets\Scripts\Utility\JMousePicking.cs" />
   </ItemGroup>

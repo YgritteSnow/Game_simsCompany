@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Data;
 
-public class JHomePlayer : MonoBehaviour
+public class JThirdPersonCharacter : MonoBehaviour
 {
 	private System.Type m_controlerType = typeof(JFirstPersonController);
 	private PlayerInfo m_info;
@@ -20,4 +20,6 @@ public class JHomePlayer : MonoBehaviour
 	}
 
 	void LoadInfos() { }
+
+	public void Move(Vector3 move) { }
 }

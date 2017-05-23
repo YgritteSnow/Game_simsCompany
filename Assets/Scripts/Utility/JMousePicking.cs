@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class JMousePicking : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+	private GameObject m_lastPicking;
 	
 	// Update is called once per frame
 	void Update () {
@@ -22,7 +19,21 @@ public class JMousePicking : MonoBehaviour {
 				if (picked)
 				{
 					picked.OnPick();
+					if (m_lastPicking && m_lastPicking != hit.transform.gameObject)
+						m_lastPicking.GetComponent<JMousePicked>().OnUnPick();
+					m_lastPicking = hit.transform.gameObject;
 				}
+			}
+		}
+
+		if (false && Input.GetMouseButtonDown(1))
+		{
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+			Physics.Raycast(ray, out hit);
+			if (hit.transform && hit.transform.gameObject)
+			{
+				GameObject.Destroy(hit.transform.gameObject);
 			}
 		}
 	}
