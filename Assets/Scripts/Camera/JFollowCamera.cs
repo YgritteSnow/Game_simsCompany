@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Transform))]
-public class FollowCamera : MonoBehaviour {
+public class JFollowCamera : MonoBehaviour {
 	public Transform m_followTargetTransform;
 	public float m_zoomSpeed = 2.0f;
 	public float m_rotateSpeed = 4.0f;

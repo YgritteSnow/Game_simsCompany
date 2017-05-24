@@ -5,7 +5,7 @@ using UnityEngine;
 public class JNavController : MonoBehaviour {
 
 	public UnityEngine.AI.NavMeshAgent agent { get; private set; }             // the navmesh agent required for the path finding
-	public JThirdPersonCharacter character { get; private set; } // the character we are controlling
+	public JPlayer character { get; private set; } // the character we are controlling
 	public Transform target;                                    // target to aim for
 
 
@@ -13,7 +13,7 @@ public class JNavController : MonoBehaviour {
 	{
 		// get the components on the object we need ( should not be null due to require component so no need to check )
 		agent = GetComponentInChildren<UnityEngine.AI.NavMeshAgent>();
-		character = GetComponent<JThirdPersonCharacter>();
+		character = GetComponent<JPlayer>();
 
 		agent.updateRotation = false;
 		agent.updatePosition = true;
