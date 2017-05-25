@@ -11,7 +11,7 @@ public class J2DPersonController : MonoBehaviour
 	void Start()
 	{
 		m_player = GetComponent<JPlayer>();
-		m_player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+		m_player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 	}
 
 	// Update is called once per frame

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Scripts.Data;
+using Assets.Scripts;
 
 [RequireComponent(typeof(Rigidbody))]
 public class JPlayer : MonoBehaviour
@@ -10,7 +10,7 @@ public class JPlayer : MonoBehaviour
 	public float m_jump = 5.0f;
 	public bool m_isJumping = false;
 
-	public float m_groundCheckDistance = 0.1f;
+	public float m_groundCheckDistance = 0.8f;
 	private Vector3 m_groundNormal;
 	public bool m_isGrounded;
 
@@ -50,13 +50,7 @@ public class JPlayer : MonoBehaviour
 	void UpdateGroundStatus()
 	{
 		RaycastHit hitInfo;
-#if UNITY_EDITOR
-		// helper to visualise the ground check ray in the scene view
-		Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_groundCheckDistance));
-#endif
-		// 0.1f is a small offset to start the ray from inside the character
-		// it is also good to note that the transform position in the sample assets is at the base of the character
-		if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_groundCheckDistance))
+		if (JUtilities.GetCollider_one_forceDist(out hitInfo, transform.position, Vector3.down, m_groundCheckDistance))
 		{
 			m_groundNormal = hitInfo.normal;
 			m_isGrounded = true;

@@ -91,6 +91,10 @@
     <Compile Include="Assets\Scripts\GUI\JUIResources.cs" />
     <Compile Include="Assets\Scripts\JGameLoader.cs" />
     <Compile Include="Assets\Scripts\JGameManager.cs" />
+    <Compile Include="Assets\Scripts\JUtilities.cs" />
+    <Compile Include="Assets\Scripts\Mirror\JMirrorScaleY.cs" />
+    <Compile Include="Assets\Scripts\Mirror\JMirrorTransformY.cs" />
+    <Compile Include="Assets\Scripts\Mirror\JMirrorTransformY_playerRef.cs" />
     <Compile Include="Assets\Scripts\Player\J2DPersonController.cs" />
     <Compile Include="Assets\Scripts\Player\JFirstPersonController.cs" />
     <Compile Include="Assets\Scripts\Player\JNavController.cs" />
