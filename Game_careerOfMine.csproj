@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Utility\JMousePicking.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Resources\Materials\Shader\crystal.shader" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
