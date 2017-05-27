@@ -1,45 +1,61 @@
-﻿Shader "Custom/NewSurfaceShader" {
-	Properties {
-		_Color ("Color", Color) = (1,1,1,1)
-		_MainTex ("Albedo (RGB)", 2D) = "white" {}
-		_Glossiness ("Smoothness", Range(0,1)) = 0.5
-		_Metallic ("Metallic", Range(0,1)) = 0.0
+﻿Shader "Custom/Crystal" {
+	Properties{
+		_MainTex("Albedo (RGB)", 2D) = "white" {}
+	_Gain("Lightmap tone-mapping Gain", Float) = 1
+		_Knee("Lightmap tone-mapping Knee", Float) = 0.5
+		_Compress("Lightmap tone-mapping Compress", Float) = 0.33
 	}
-	SubShader {
-		Tags { "RenderType"="Opaque" }
-		LOD 200
-		
+		SubShader{
+		Tags{ "RenderType" = "Opaque" }
+
 		CGPROGRAM
-		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf Lambert vertex:vert
+#pragma surface surf StandardToneMappedGI
 
-		// Use shader model 3.0 target, to get nicer looking lighting
-		#pragma target 3.0
+#include "UnityPBSLighting.cginc"
 
-		struct Input {
-			float2 uv_MainTex;
-			float3 customColor;
-		};
-		void vert(inout appdata_full v, out Input o) {
-			UNITY_INITIALIZE_OUTPUT(Input, o);
-			o.customColor = v.color;
-		}
+		half _Gain;
+	half _Knee;
+	half _Compress;
+	sampler2D _MainTex;
 
-		half _Glossiness;
-		half _Metallic;
-		fixed4 _Color;
-
-		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
-		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
-		// #pragma instancing_options assumeuniformscaling
-		UNITY_INSTANCING_CBUFFER_START(Props)
-			// put more per-instance properties here
-		UNITY_INSTANCING_CBUFFER_END
-
-		void surf(Input IN, inout SurfaceOutput o) {
-			o.Albedo =  IN.customColor;
-		}
-		ENDCG
+	inline half3 TonemapLight(half3 i) {
+		i *= _Gain;
+		return (i > _Knee) ? (((i - _Knee)*_Compress) + _Knee) : i;
 	}
-	FallBack "Diffuse"
+
+	inline half4 LightingStandardToneMappedGI(SurfaceOutputStandard s, half3 viewDir, UnityGI gi)
+	{
+		return LightingStandard(s, viewDir, gi);
+	}
+
+	inline void LightingStandardToneMappedGI_GI(
+		SurfaceOutputStandard s,
+		UnityGIInput data,
+		inout UnityGI gi)
+	{
+		LightingStandard_GI(s, data, gi);
+
+		gi.light.color = TonemapLight(gi.light.color);
+#ifdef DIRLIGHTMAP_SEPARATE
+#ifdef LIGHTMAP_ON
+		gi.light2.color = TonemapLight(gi.light2.color);
+#endif
+#ifdef DYNAMICLIGHTMAP_ON
+		gi.light3.color = TonemapLight(gi.light3.color);
+#endif
+#endif
+		gi.indirect.diffuse = TonemapLight(gi.indirect.diffuse);
+		gi.indirect.specular = TonemapLight(gi.indirect.specular);
+	}
+
+	struct Input {
+		float2 uv_MainTex;
+	};
+
+	void surf(Input IN, inout SurfaceOutputStandard o) {
+		o.Albedo = tex2D(_MainTex, IN.uv_MainTex);
+	}
+	ENDCG
+	}
+		FallBack "Diffuse"
 }
