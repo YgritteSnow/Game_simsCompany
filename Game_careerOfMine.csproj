@@ -45,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.XML" />
     <Reference Include="System.Core" />
+	<Reference Include="Microsoft.CSharp" />
     <Reference Include="Boo.Lang" />
     <Reference Include="UnityScript.Lang" />
     <Reference Include="System.Runtime.Serialization" />
@@ -91,6 +92,8 @@
     <Compile Include="Assets\Scripts\GUI\JUIResources.cs" />
     <Compile Include="Assets\Scripts\JGameLoader.cs" />
     <Compile Include="Assets\Scripts\JGameManager.cs" />
+    <Compile Include="Assets\Scripts\JTmpResources.cs" />
+    <Compile Include="Assets\Scripts\JTmpTagManager.cs" />
     <Compile Include="Assets\Scripts\JUtilities.cs" />
     <Compile Include="Assets\Scripts\Mirror\JMirrorScaleY.cs" />
     <Compile Include="Assets\Scripts\Mirror\JMirrorTransformY.cs" />
