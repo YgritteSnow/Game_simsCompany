@@ -11,15 +11,8 @@ public class JMirrorScaleY : MonoBehaviour
 	void Start()
 	{
 		m_trans = GetComponent<Transform>();
-	}
 
-	// Update is called once per frame
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			OnMirror();
-		}
+		gameObject.tag = JTmpTagManager.Instance.GetTagName(this);
 	}
 
 	void OnMirror()

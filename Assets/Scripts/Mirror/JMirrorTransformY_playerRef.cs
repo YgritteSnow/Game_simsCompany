@@ -12,15 +12,8 @@ public class JMirrorTransformY_playerRef : MonoBehaviour {
 		m_trans = GetComponent<Transform>();
 		GameObject player = GameObject.Find("Player");
 		m_playerTrans = player.GetComponent<Transform>();
-	}
-	
-	// Update is called once per frame
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			OnMirror();
-		}
+
+		gameObject.tag = JTmpTagManager.Instance.GetTagName(this);
 	}
 
 	void OnMirror()
