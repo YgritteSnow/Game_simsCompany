@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game_careerOfMine", "Game_c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game_careerOfMine.Editor.Plugins", "Game_careerOfMine.Editor.Plugins.csproj", "{0B854D69-C2E8-2674-8003-4E8F8D0A702A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game_careerOfMine.Editor", "Game_careerOfMine.Editor.csproj", "{0BC0F5EC-37AC-BF1F-421D-4DCC0B065F59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{0B854D69-C2E8-2674-8003-4E8F8D0A702A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B854D69-C2E8-2674-8003-4E8F8D0A702A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B854D69-C2E8-2674-8003-4E8F8D0A702A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BC0F5EC-37AC-BF1F-421D-4DCC0B065F59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BC0F5EC-37AC-BF1F-421D-4DCC0B065F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BC0F5EC-37AC-BF1F-421D-4DCC0B065F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BC0F5EC-37AC-BF1F-421D-4DCC0B065F59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

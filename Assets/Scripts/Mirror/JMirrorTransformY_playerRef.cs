@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Transform))]
-public class JMirrorTransformY_playerRef : MonoBehaviour {
+public class JMirrorTransformY_playerRef : JMirrorBase
+{
 
 	private Transform m_trans;
 	private Transform m_playerTrans;
 	// Use this for initialization
-	void Start () {
+	public override void OnStart()
+	{
 		m_trans = GetComponent<Transform>();
 		GameObject player = GameObject.Find("Player");
 		m_playerTrans = player.GetComponent<Transform>();
-
-		gameObject.tag = JTmpTagManager.Instance.GetTagName(this);
 	}
 
-	void OnMirror()
+	public override void OnMirror()
 	{
 		RaycastHit hit_up, hit_down;
 		if(JUtilities.GetCollider_twoSide(out hit_up, out hit_down, m_playerTrans.position, Vector3.down, gameObject))

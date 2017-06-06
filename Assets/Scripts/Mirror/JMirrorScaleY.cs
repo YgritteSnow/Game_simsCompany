@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Transform))]
-public class JMirrorScaleY : MonoBehaviour
+public class JMirrorScaleY : JMirrorBase
 {
 
 	private Transform m_trans;
 	// Use this for initialization
-	void Start()
+	public override void OnStart()
 	{
 		m_trans = GetComponent<Transform>();
-
-		gameObject.tag = JTmpTagManager.Instance.GetTagName(this);
 	}
 
-	void OnMirror()
+	public override void OnMirror()
 	{
 		Vector3 new_scale = m_trans.localScale;
 		new_scale.y = -new_scale.y;
